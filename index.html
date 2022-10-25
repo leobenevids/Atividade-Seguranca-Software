@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <span id="error"></span>
+    <form id="form" action="/" method="GET">
+        <div>
+            <label for="name">Name: </label>
+            <input id="name" name="name" type="text"  />
+        </div>
+        <div>
+            <label for="email">E-mail: </label>
+            <input id="email" name="email" type="email" />
+        </div>
+        <div>
+            <label for="website">Website: </label>
+            <input id="website" name="website" type="url" >
+        </div>
+        <div>
+            <label for="comment">Comment: </label>
+            <input id="comment" name="comment" type="text" />
+        </div>
+        <div>
+            <input id="female" name="gender" type="radio" />
+            <label for="female">Female</label>
+            <input id="male" name="gender" type="radio" />
+            <label for="male">Male</label>
+            <input id="other" name="gender" type="radio" />
+            <label for="other">Other</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
