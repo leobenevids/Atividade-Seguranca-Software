@@ -3,20 +3,12 @@ const email = document.getElementById("email");
 const website = document.getElementById("website");
 const comment = document.getElementById("comment");
 const form = document.getElementById("form");
+const gender = document.getElementsByName("gender");
 const errorElement = document.getElementById("error");
+const dataElement = document.getElementById("data");
 
 form.addEventListener("submit", (e) => {
   let messages = [];
-
-  // validation functions
-  //   function CheckIfItsEmpty(field) {
-  //     if (field.value === "" || field.value == null) {
-  //       let msg = `${field} is required`;
-  //       return msg;
-  //     }
-  //   }
-
-  //   CheckIfItsEmpty(name);
 
   if (name.value === "" || name.value == null) {
     messages.push("Name is required");
@@ -41,6 +33,15 @@ form.addEventListener("submit", (e) => {
   if (messages.length > 0) {
     e.preventDefault();
     errorElement.innerHTML = messages.join(", ");
+  } else {
+    const formValues = {
+      name: name.value.trim(),
+      email: email.value,
+      website: website.value,
+      comment: comment.value,
+    };
+
+    window.localStorage.setItem("form", JSON.stringify(formValues));
   }
 });
 
@@ -48,3 +49,8 @@ function WordCount(sentence) {
   const words = sentence.split(" ");
   return words.length;
 }
+
+const localStorageData = JSON.parse(window.localStorage.getItem("form"));
+console.log(localStorageData);
+
+ dataElement.innerHTML = localStorageData;
